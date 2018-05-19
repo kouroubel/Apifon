@@ -35,20 +35,7 @@ class Meetup
     endpoint = "/services/sms/send"
     # endpoint = "/services/im/send"
     
-    bodyStr = '{
-        "message": 
-        {
-          "text": "Hello There!",
-          "sender_id": "TeamLink"
-        },
-        "callback_url": "https://yourserver/callback",
-        "subscribers": [{
-            "number": "306947260939"
-        }
-        ]
-      }
-      
-    }'
+    bodyStr = '{"message":{"text": "Hello Test....","sender_id": "TeamLink" }, "callback_url": "https://yourserver/callback","subscribers": [{"number": "6941496365"},{"number": "6947260939"}]}}'
     
 #     bodyStr = '{
 #     "message": {},
@@ -68,6 +55,8 @@ class Meetup
     
     signature = Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), secretKey, sign_str)).strip()
   
+
+  
     @options =  
     {
       headers: 
@@ -78,6 +67,7 @@ class Meetup
       },
       body: bodyStr
     }
+    
     
   end
 
