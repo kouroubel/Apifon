@@ -64,8 +64,6 @@ class Meetup
 #     ]
 # }'
 
-#############################################
-    
     sign_str = "POST" + "\n" + endpoint + "\n" + bodyStr + "\n" + request_date
     
     signature = Base64.encode64(OpenSSL::HMAC.digest(OpenSSL::Digest.new('sha256'), secretKey, sign_str)).strip()
