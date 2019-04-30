@@ -1,5 +1,6 @@
 class MeetupController < ApplicationController
   def index
+    
     @events = Meetup.new.events
     render  json: @events, status: :ok
   rescue StandardError => e
